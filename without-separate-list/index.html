@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>SW test page</title>
+</head>
+<body>
+  <h1>Outputting the contents of some subresources:</h1>
+  <pre class="results"></pre>
+  <script>
+    // output some subresources for testing
+    {
+      const results = document.querySelector('.results');
+      Promise.all([
+        fetch('subresources/foo.txt').then(r => r.text()),
+        fetch('subresources/hello.txt').then(r => r.text())
+      ]).then(([fooText, helloText]) => {
+        results.textContent = `foo: ${fooText}\nhello: ${helloText}`;
+      });
+    }
+    
+    // register SW
+    navigator.serviceWorker.register('sw.js');
+  </script>
+</body>
+</html>
