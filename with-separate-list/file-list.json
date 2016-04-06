@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "files": [
+    "./",
+    "subresources/foo.txt",
+    "subresources/hello.txt"
+  ]
+}
